@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Button, Container, Flex, Heading, HStack } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 

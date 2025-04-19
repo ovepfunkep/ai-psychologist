@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Flex, Input, IconButton, VStack, Text } from '@chakra-ui/react';
 import { IoSend } from 'react-icons/io5';
 

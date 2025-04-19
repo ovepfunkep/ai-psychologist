@@ -1,6 +1,5 @@
-import React from 'react';
 import { Box, Text, Flex, useColorModeValue } from '@chakra-ui/react';
-import { ChatMessage as Message } from '../../../../store/slices/chatSlice';
+import { Message } from '../../../../store/slices/chatSlice';
 
 interface MessageBubbleProps {
   message: Message;
