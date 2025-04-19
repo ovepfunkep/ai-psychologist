@@ -1,26 +1,15 @@
-import React from 'react';
-import { Box, Button, Container, Heading, Text, VStack } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+import { Container, Heading, Text, Button, VStack } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
-  const navigate = useNavigate();
-
   return (
-    <Container maxW="container.xl" py={20}>
-      <VStack spacing={8} textAlign="center">
-        <Heading size="2xl" color="primary.main">
-          404 - Page Not Found
-        </Heading>
-        <Text fontSize="xl" color="text.secondary">
-          The page you're looking for doesn't exist or has been moved.
-        </Text>
-        <Button
-          size="lg"
-          colorScheme="blue"
-          onClick={() => navigate('/')}
-        >
-          Go Back Home
-        </Button>
+    <Container maxW="container.md" py={20}>
+      <VStack spacing={6} textAlign="center">
+        <Heading size="2xl">404</Heading>
+        <Text fontSize="xl">Page not found</Text>
+        <Link to="/">
+          <Button colorScheme="blue">Go Home</Button>
+        </Link>
       </VStack>
     </Container>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid } from '@chakra-ui/react';
+import { Box, Grid } from '@chakra-ui/react';
 import ChatArea from './components/ChatArea';
 import Sidebar from './components/Sidebar';
 import RightPanel from './components/RightPanel';
