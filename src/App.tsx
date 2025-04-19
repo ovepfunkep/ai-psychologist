@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <ChakraProvider theme={theme}>
         <CSSReset />
-        <Router>
+        <Router basename="/ai-psychologist">
           <Layout>
             <Routes>
               <Route path="/" element={<Landing />} />
