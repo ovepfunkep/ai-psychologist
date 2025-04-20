@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { VStack, Box } from '@chakra-ui/react';
 import { v4 as uuidv4 } from 'uuid';
-import { Message } from '../../../components/chat/types';
-import { MessageList } from '../../../components/chat/MessageList';
-import { MessageInput } from '../../../components/chat/MessageInput';
+import { MessageList } from './MessageList';
+import { MessageInput } from './MessageInput';
+import { Message } from './types';
 
-const ChatArea: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: uuidv4(),
-      content: "Hello! How are you feeling today?",
-      sender: 'ai',
-      timestamp: new Date(),
-    }
-  ]);
+export const ChatContainer: React.FC = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSendMessage = async (content: string) => {
@@ -33,7 +26,7 @@ const ChatArea: React.FC = () => {
       // For now, we'll just echo back a mock response
       const aiMessage: Message = {
         id: uuidv4(),
-        content: `I understand that you're saying: "${content}". How does that make you feel?`,
+        content: `I received your message: "${content}"`,
         sender: 'ai',
         timestamp: new Date(),
       };
@@ -51,21 +44,27 @@ const ChatArea: React.FC = () => {
   };
 
   return (
-    <Flex direction="column" h="100%" bg="white">
-      {/* Messages Area */}
-      <Box flex="1" overflowY="auto">
+    <VStack
+      height="100%"
+      spacing={4}
+      p={4}
+    >
+      <Box
+        flex={1}
+        width="100%"
+        overflowY="auto"
+        borderWidth={1}
+        borderRadius="lg"
+        bg="white"
+      >
         <MessageList messages={messages} />
       </Box>
-
-      {/* Input Area */}
-      <Box p={4} borderTop="1px" borderColor="gray.200">
+      <Box width="100%">
         <MessageInput
           onSendMessage={handleSendMessage}
           disabled={isProcessing}
         />
       </Box>
-    </Flex>
+    </VStack>
   );
-};
-
-export default ChatArea; 
+}; 
